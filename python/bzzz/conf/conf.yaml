@@ -1,0 +1,5 @@
+---
+general:
+    log:
+        log_file: bzzz.log
+        log_level: DEBUG
