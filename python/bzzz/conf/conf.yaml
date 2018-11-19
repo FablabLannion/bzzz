@@ -1,5 +1,40 @@
 ---
 general:
+    ruche_id: ruche_34b0
     log:
         log_file: bzzz.log
         log_level: DEBUG
+    deepsleep: False
+    timeout: 60000
+    delai_local: 10
+ttn:
+    DEV_EUI: 70B3D5499390A31C
+    APP_EUI: 70B3D57ED0007FAD
+    APP_KEY: 2455433205F12974AB5629B85490D79F
+temp_sensor:
+    gain_distant: 0.80
+    offset_distant: 314
+    gain_local: 1.22
+    offset_local: 318
+relai:
+    sortie_1: pg
+    sortie_2: pg
+hx:
+    1:
+        dt: P8
+        sck: P23
+    2:
+        dt: P14
+        sck: P22
+    3:
+        dt: P4
+        sck: P21
+    4:
+        dt: P13
+        sck: P20
+    5:
+        dt: P16
+        sck: P19
+    6:
+        dt: P15
+        sck: P11

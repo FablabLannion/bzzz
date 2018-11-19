@@ -5,3 +5,4 @@ pycom
 HX711
 network
 machine
+pyyaml
