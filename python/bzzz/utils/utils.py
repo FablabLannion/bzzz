@@ -11,7 +11,10 @@
 
 """ Utils """
 
+import sys
 import yaml
+
+CONFIG_FILE = sys.path[-1] + "/bzzz/conf/conf.yaml"
 
 
 def get_parameter_from_yaml(config_file, parameter):
@@ -30,3 +33,17 @@ def get_parameter_from_yaml(config_file, parameter):
         if value is None:
             raise ValueError("Parameter %s not defined" % parameter)
     return value
+
+
+def get_coefficient(sensor_id):
+    """
+    Returns coeeficient for HX711 sensor
+    """
+    coef = (get_parameter_from_yaml(
+        CONFIG_FILE,
+        "hx.sensor-" + str(sensor_id) + ".etalon") / (
+            get_parameter_from_yaml(
+                CONFIG_FILE, "hx.sensor-" + str(sensor_id) + ".valeur") -
+            get_parameter_from_yaml(
+                CONFIG_FILE, "hx.sensor-" + str(sensor_id) + ".tare")))
+    return coef

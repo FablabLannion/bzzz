@@ -47,6 +47,17 @@ class UtilsTestingBase(unittest.TestCase):
                 self._config_file,
                 "Bernard4Ever")
 
+    def test_get_coefficient(self):
+        tare_capteur_1 = bzzz_utils.get_parameter_from_yaml(
+            self._config_file, "hx.sensor-1.tare")
+        valeur_capteur_1 = bzzz_utils.get_parameter_from_yaml(
+            self._config_file, "hx.sensor-1.valeur")
+        etalon_capteur_1 = bzzz_utils.get_parameter_from_yaml(
+            self._config_file, "hx.sensor-1.etalon")
+        coefficient_1 = etalon_capteur_1 / (valeur_capteur_1 - tare_capteur_1)
+        self.assertEqual(coefficient_1,
+                         bzzz_utils.get_coefficient(sensor_id=1))
+
 
 if __name__ == "__main__":
     # logging must be disabled else it calls time.time()

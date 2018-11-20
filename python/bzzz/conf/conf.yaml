@@ -4,13 +4,36 @@ general:
     log:
         log_file: bzzz.log
         log_level: DEBUG
-    deepsleep: False
+    deepsleep: false
     timeout: 60000
     delai_local: 10
 ttn:
     DEV_EUI: 70B3D5499390A31C
     APP_EUI: 70B3D57ED0007FAD
     APP_KEY: 2455433205F12974AB5629B85490D79F
+lora:
+    lora_frequency: 863000000
+    dr: 5
+    pkt_prefix: b'W '  # Prefix of each packet
+    sleep_main: 60  # Sleep time in packet send
+    tempo_demarrage: 0.1  # le temps en s que la carte lora soit opérationnelle
+    tempo_emission: 0.1  # le temps en s que la carte lora finisse l'émission
+    dis_wifi: true
+    dis_ble: true
+    heartbeat: false
+pycom:
+    black: 0x000000
+    blanc: 0x7f7f7f
+    green: 0x007f00
+    vert_pale: 0x000800
+    yellow: 0x7f7f00
+    jaune_pale: 0x080800
+    red: 0x7f0000
+    rouge_pale: 0x080000
+    orange_pale: 0xFF6600
+    blue: 0x00007f
+    bleu_pale: 0x000008
+    violet: 0xFF33CC
 temp_sensor:
     gain_distant: 0.80
     offset_distant: 314
@@ -20,21 +43,42 @@ relai:
     sortie_1: pg
     sortie_2: pg
 hx:
-    1:
+    precision: 0.01
+    nombre_point: 3  # nb d'acquisitions faites par le HX711
+    delai_avant_acquisition: 0.4
+    sensor-1:
         dt: P8
         sck: P23
-    2:
+        tare: 279600
+        valeur: 1886000
+        etalon: 5202
+    sensor-2:
         dt: P14
         sck: P22
-    3:
+        tare: -232000
+        valeur: 437500
+        etalon: 6930
+    sensor-3:
         dt: P4
         sck: P21
-    4:
+        tare: 0
+        valeur: 670900
+        etalon: 6930
+    sensor-4:
         dt: P13
         sck: P20
-    5:
+        tare: 69060
+        valeur: 755500
+        etalon: 6930
+    sensor-5:
         dt: P16
         sck: P19
-    6:
+        tare: -110000
+        valeur: 551000
+        etalon: 6930
+    sensor-6:
         dt: P15
         sck: P11
+        tare: 40470
+        valeur: 719900
+        etalon: 6930
